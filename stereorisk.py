@@ -20,11 +20,14 @@ class MyFunction(Function):
 
     @staticmethod
     def forward(cost, disp_values):
-
+        # input:
         # cost: the probability for each disparity hypothesis
         #       shape (B, D, H, W), B is batch size, D is the number of disparity hypothesis, H and W are height and width     
         # disp_values: the disparity values, sorted
         #       shape (B, D, H, W), B is batch size, D is the number of disparity hypothesis, H and W are height and width  
+        # output:
+        # mid: the disparity with minimized risk
+        
         band = 1.1
         left = disp_values[:, 0:1]
         right = disp_values[:, -1:]
